@@ -1,0 +1,21 @@
+class AuthorsController < ApplicationController
+  def index
+    render json: Author.all.order('created_at DESC').includes(:books).to_json(only: [:name], include: [books: {only: :title}])
+      
+  end
+
+  def new
+    @author = Author.new
+    @author.books.build({author_id: @author.id})
+    #@author.books.build
+  end
+
+  def create
+    Author.create(author_params)
+    redirect_to authors_path
+  end
+
+  def author_params
+    params.require(:author).permit(:name, books_attributes:[:title])
+  end
+end
