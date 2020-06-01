@@ -1,7 +1,7 @@
-const addComment = () => {
-  const createCommentButton = document.getElementById("addComment");
+const addBook = () => {
+  const createCommentButton = document.getElementById("addBook");
   createCommentButton.addEventListener("click", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const lastId = document.querySelector("#select").lastElementChild.dataset
       .fieldsetId;
     const newId = parseInt(lastId, 10) + 1;
@@ -13,4 +13,4 @@ const addComment = () => {
       .insertAdjacentHTML("beforeend", changeFieldsetId);
   });
 };
-export { addComment };
+export { addBook };

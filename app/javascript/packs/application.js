@@ -15,10 +15,10 @@ require("channels");
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import { addComment } from "./addComment";
+import { addBook } from "./addBook";
 
 document.addEventListener("turbolinks:load", () => {
   if (document.querySelector("#select")) {
-    addComment();
+    addBook();
   }
 });
