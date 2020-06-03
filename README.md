@@ -93,7 +93,7 @@ end
 
 We navigate to the view _/authors/new_ and see 3 fields, one for the author’s name and two for a book’s title. When we submit the form, we inspect the logs and the hash params will appear, showing something as below:
 
-```json
+```js
 {"author" : {
   "name": “John”,
   "books_attributes" : [
@@ -177,19 +177,25 @@ import { addBook } from ‘addBook’document addEventListener(‘turbolinks:loa
 
 and we add `defer: true` in the file _/views/layouts/application.html.erb_.
 
-````html
+```html
 <%= javascript_pack_tag ‘application’, ‘data-turbolinks-track’: ‘reload’, defer:
-true %> ```> This simple method can be easily adapted for more complex forms.
-The most tricky part is probably the regex part, depending on the form and more
-specifically on the naming. > Note 2: Simple Form input wrapper We can create a
-custom Simple Form input wrapper: ```ruby
+true %>
+```
+
+This simple method can be easily adapted for more complex forms. The most tricky part is probably the regex part, depending on the form and more specifically on the naming.
+
+> Note 2: Simple Form input wrapper
+
+We can create a custom Simple Form input wrapper:
+
+```ruby
 #/config/initializers/simple_form_bootstrap.rbconfig.wrappers :dynamic_input,
 tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class:
 'form-group-valid' do |b| b.use :html5 b.wrapper tag: 'div', html: {id:
 "select"} do |d| d.wrapper tag: 'fieldset', html: { data: {fields: "0"}} do |f|
 f.wrapper tag: 'div', class: "form-group" do |dd| dd.use :label dd.use :input,
 class: "form-control" end end end end
-````
+```
 
 so that we can simplify the form:
 
