@@ -1,12 +1,12 @@
 const addBook = () => {
   const createCommentButton = document.getElementById("addBook");
-  createCommentButton.addEventListener("click", (e) => {
+  createCommentButton.addEventListener("click", () => {
     // e.preventDefault();
     const lastId = document.querySelector("#select").lastElementChild.dataset
-      .fieldsetId;
+      .fields;
     const newId = parseInt(lastId, 10) + 1;
     const changeFieldsetId = document
-      .querySelector('[data-fieldset-id="0"]')
+      .querySelector('[data-fields="0"]')
       .outerHTML.replace(/0/g, newId);
     document
       .querySelector("#select")

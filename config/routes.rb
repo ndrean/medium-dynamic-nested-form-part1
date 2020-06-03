@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :authors, only: [:index, :new, :create]
+  resources :authors#, only: [:index, :new, :create]
   #  get 'authors/index'
   #  get 'authors/new'
   #  post 'authors/create'

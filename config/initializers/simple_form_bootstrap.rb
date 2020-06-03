@@ -45,8 +45,18 @@ SimpleForm.setup do |config|
   config.input_field_error_class = 'is-invalid'
   config.input_field_valid_class = 'is-valid'
 
-
-  # vertical forms
+  config.wrappers :dynamic, tag: 'div', class: 'form-group author_books_title', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+    b.use :html5
+    b.wrapper tag: 'div', html: {id: "select"} do |d|
+      d.wrapper tag: 'fieldset', html: { data: {fields: "0"}} do |f|
+        f.wrapper tag: 'div', class: "form-group string optional author_books_title" do |dd|
+          dd.use :label
+          dd.use :input, class: "form-control"
+        end
+      end
+    end
+  end
+    # vertical forms
   #
   # vertical default_wrapper
   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|

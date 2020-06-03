@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def index
-    render json: Author.all.order('created_at DESC').includes(:books).to_json(only: [:name], include: [books: {only: :title}])
+    render json:  Author.all.order('created_at DESC').includes(:books).to_json(only: [:name], include: [books: {only: :title}])    
       
   end
 
@@ -19,3 +19,14 @@ class AuthorsController < ApplicationController
     params.require(:author).permit(:name, books_attributes:[:title])
   end
 end
+
+# module Api
+#   module V1
+#     class AuthorsController < ApplicationController
+#       def index
+#         @articles = Article.order('craeted_at DESC')
+#         render json: { data: articles}, status: :ok
+#       end
+#     end
+#   end
+# end

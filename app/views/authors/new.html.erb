@@ -5,11 +5,13 @@
         <div class="card-body">
             <%= simple_form_for @author do |f| %>
                 <%= f.input :name %>
-                <%= f.simple_fields_for :books do |b| %>
-                    <div id="select"><fieldset data-fieldset-id=<%= b.index %>
-                    <%= b.input :title %>
-                    <% end%>
-                    </fieldset></div>
+                <%= f.fields_for :books do |b| %>
+                <%# <div id="select"><fieldset data-fields="<%= b.index%> 
+                    <%#= b.input :title %>
+                    <%= b.input :title, wrapper: :dynamic%>
+                     <!-- /initializers/simple_form_bootstrap/ config.wrappers :dynamic-->   
+                <% end %>
+                <%# </fieldset></div> %>      
                 <%= f.button :submit, class:"btn btn-primary" %>
             <% end%>
             <button id="addBook">AddBook</button>
@@ -18,5 +20,3 @@
     </div>
 
 </div>
-
-
