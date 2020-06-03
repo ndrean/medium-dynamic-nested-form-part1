@@ -94,11 +94,11 @@ end
 We navigate to the view _/authors/new_ and see 3 fields, one for the author’s name and two for a book’s title. When we submit the form, we inspect the logs and the hash params will appear, showing something as below:
 
 ```json
-{author : {
-  name: “John”,
-  books_attributes : [
-    “0”: {title: “RoR is great”},
-    “1”: {title: “Javascript is cool”}
+{"author" : {
+  "name": “John”,
+  "books_attributes" : [
+    “0”: {"title": “RoR is great”},
+    “1”: {"title": “Javascript is cool”}
   ]
  }
 }
