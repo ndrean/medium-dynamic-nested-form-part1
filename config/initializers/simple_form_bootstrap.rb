@@ -45,10 +45,10 @@ SimpleForm.setup do |config|
   config.input_field_error_class = 'is-invalid'
   config.input_field_valid_class = 'is-valid'
 
-  config.wrappers :dynamic_input, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  config.wrappers :dynamic_input, tag: 'div', class: 'form-group' do |b|
     b.use :html5
     b.wrapper tag: 'div', html: {id: "select"} do |d|
-      d.wrapper tag: 'fieldset', html: { data: {fields: "0"}} do |f|
+      d.wrapper tag: 'fieldset', html: {id: "0"} do |f|
         f.wrapper tag: 'div', class: "form-group" do |dd|
           dd.use :label
           dd.use :input, class: "form-control"

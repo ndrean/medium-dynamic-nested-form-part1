@@ -16,9 +16,11 @@ require("channels");
 // const imagePath = (name) => images(name, true)
 
 import { addBook } from "./addBook";
+import { removeField } from "./handleSpanClick";
 
 document.addEventListener("turbolinks:load", () => {
   if (document.querySelector("#select")) {
     addBook();
+    removeField();
   }
 });

@@ -6,12 +6,23 @@
             <%= simple_form_for @author do |f| %>
                 <%= f.input :name %>
                 <%= f.fields_for :books do |b| %>
-                <%# <div id="select"><fieldset data-fields="<%= b.index%> 
-                    <%#= b.input :title %>
-                    <%= b.input :title, wrapper: :dynamic_input%>
+                <div id="select">
+                <fieldset id="0"> 
+                    <div class="row">
+                        <div class="col-9">
+                         <%= b.input :title %>
+                        </div>
+                        <div class="col-3 d-flex"> 
+                        <%= content_tag('a', 'DEL', id: "del-"+b.index.to_s, class:"badge badge-danger align-self-center")  %>
+                        </div>
+                    </div>
+                   
+                    <%#= b.input :title, wrapper: :dynamic_input%>
                      <!-- /initializers/simple_form_bootstrap/ config.wrappers :dynamic-->   
+
+                    <hr>
                 <% end %>
-                <%# </fieldset></div> %>      
+                </fieldset></div>    
                 <%= f.button :submit, 'Create', class:"btn btn-primary" %>
             <% end%>
             <button id="addBook" class="btn btn-success">AddBook</button>
