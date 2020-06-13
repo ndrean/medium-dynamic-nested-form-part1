@@ -15,6 +15,18 @@ class AuthorsController < ApplicationController
     redirect_to authors_path
   end
 
+  #### TEST
+  def edit
+    @author = Author.first
+  end
+
+  def update
+    @author = Author.update(author_params)
+
+  end
+  ####
+
+  private
   def author_params
     params.require(:author).permit(:name, books_attributes:[:title])
   end
